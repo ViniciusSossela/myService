@@ -1,10 +1,20 @@
 'use strict';
 angular.module('main')
-.controller('LoginCtrl', function ($log, Main, Config) {
+.controller('LoginCtrl', ['$location', '$state', function ($location, $state, $log, Main, Config) {
 
   // $log.log('Hello from your Controller: LoginCtrl in module login:. This is your controller:', this);
 
-});
+  // bind data from services
+  this.username = "user name teste";
+  
+  this.teste = function(){
+    debugger;
+    this.username = "user name now changed";
+    // $location.path('/main/list');
+    $state.go('main.list')
+  };
+
+}]);
 
 
 

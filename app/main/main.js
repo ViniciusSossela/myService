@@ -49,14 +49,14 @@ angular.module('main', [
       url: '/authentication',
       abstract: true,
       templateUrl: 'main/templates/authentication.html',
-      controller: 'LoginCtrl as menu'
+      // controller: 'LoginCtrl as menu'
     })
       .state('authentication.login', {
         url: '/login',
         views: {
           'pageContent': {
             templateUrl: 'main/templates/login.html',
-            //controller: 'DebugCtrl as ctrl'
+            controller: 'LoginCtrl as ctrl'
           }
         }
       });
