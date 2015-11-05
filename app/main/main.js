@@ -8,7 +8,7 @@ angular.module('main', [
 .config(function ($stateProvider, $urlRouterProvider) {
 
   // ROUTING with ui.router
-  $urlRouterProvider.otherwise('/main/list');
+  $urlRouterProvider.otherwise('/login/face');
   $stateProvider
     // this state is placed in the <ion-nav-view> in the index.html
     .state('main', {
@@ -43,5 +43,23 @@ angular.module('main', [
             controller: 'DebugCtrl as ctrl'
           }
         }
+      })
+
+    .state('login', {
+      url: '/login',
+      abstract: true,
+      templateUrl: 'main/templates/login.html',
+      controller: 'LoginCtrl as menu'
+    })
+      .state('login.face', {
+        url: '/face',
+        views: {
+          'pageContent': {
+            templateUrl: 'main/templates/fb-login.html',
+            //controller: 'DebugCtrl as ctrl'
+          }
+        }
       });
+
+    
 });
