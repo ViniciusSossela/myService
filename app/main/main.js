@@ -8,7 +8,7 @@ angular.module('main', [
 .config(function ($stateProvider, $urlRouterProvider) {
 
   // ROUTING with ui.router
-  $urlRouterProvider.otherwise('/login/face');
+  $urlRouterProvider.otherwise('/authentication/login');
   $stateProvider
     // this state is placed in the <ion-nav-view> in the index.html
     .state('main', {
@@ -45,17 +45,17 @@ angular.module('main', [
         }
       })
 
-    .state('login', {
-      url: '/login',
+    .state('authentication', {
+      url: '/authentication',
       abstract: true,
-      templateUrl: 'main/templates/login.html',
+      templateUrl: 'main/templates/authentication.html',
       controller: 'LoginCtrl as menu'
     })
-      .state('login.face', {
-        url: '/face',
+      .state('authentication.login', {
+        url: '/login',
         views: {
           'pageContent': {
-            templateUrl: 'main/templates/fb-login.html',
+            templateUrl: 'main/templates/login.html',
             //controller: 'DebugCtrl as ctrl'
           }
         }
