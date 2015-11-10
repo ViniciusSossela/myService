@@ -8,11 +8,44 @@ angular.module('main')
   this.username = "user name teste";
   
   this.teste = function(){
-    debugger;
+    // debugger;
     this.username = "user name now changed";
     // $location.path('/main/list');
-    $state.go('main.list')
+    // $state.go('main.list')
   };
+
+
+  // onSuccess Callback
+  // This method accepts a Position object, which contains the
+  // current GPS coordinates
+  //
+  this.onSuccess = function(position) {
+
+      // this.username = 'latitude:' + position.coords.latitude;
+
+      // alert('Latitude: '          + position.coords.latitude);
+      
+      alert('Latitude: '          + position.coords.latitude          + '\n' +
+            'Longitude: '         + position.coords.longitude         + '\n' +
+            'Altitude: '          + position.coords.altitude          + '\n' +
+            'Accuracy: '          + position.coords.accuracy          + '\n' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+            'Heading: '           + position.coords.heading           + '\n' +
+            'Speed: '             + position.coords.speed             + '\n' +
+            'Timestamp: '         + position.timestamp                + '\n');
+
+      this.username = 'teste alterado';
+  };
+
+  // onError Callback receives a PositionError object
+  //
+  function onError(error) {
+      alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+  }
+
+  navigator.geolocation.getCurrentPosition(this.onSuccess, onError);
+
 
 }]);
 
